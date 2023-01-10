@@ -29,7 +29,15 @@ model = st.sidebar.selectbox("Select the model", models)
 temperature = st.sidebar.slider("Temperature", min_value=0.00, max_value=1.00, step=0.01, value=0.00)
 
 # Max length slider
-max_length = st.sidebar.slider("Max Length", min_value=1, max_value=8000, step=50, value=250)
+max_length = st.sidebar.slider("Max Length", min_value=1, max_value=8000, step=10, value=250)
+
+
+# make text box too for max length
+max_length = st.sidebar.text_input("Enter the max length", max_length)
+
+
+# convert max_length to int
+max_length = int(max_length)
 
 # Stop sequence input
 stop_sequence = st.sidebar.text_input("Enter the stop sequence separated by commas")
