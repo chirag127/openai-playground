@@ -50,20 +50,7 @@ presence_penalty = st.sidebar.slider("Presence Penalty", min_value=0.00, max_val
 
 # Generate button
 button = st.button("Generate")
-#         import cohere
-# co = cohere.Client('{apiKey}')
-# response = co.generate(
-#   model='',
-#   prompt='{prompt}',
-#   max_tokens=50,
-#   temperature=0.9,
-#   k=0,
-#   p=0.75,
-#   frequency_penalty=0,
-#   presence_penalty=0,
-#   stop_sequences=[],
-#   return_likelihoods='NONE')
-# print('Prediction: {}'.format(response.generations[0].text))
+
 if button:
 
     if company == "Cohere":
