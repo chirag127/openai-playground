@@ -58,11 +58,7 @@ frequency_penalty = st.sidebar.slider("Frequency Penalty", min_value=0.00, max_v
 presence_penalty = st.sidebar.slider("Presence Penalty", min_value=0.00, max_value=1.00, step=0.01, value=0.00)
 
 
-# Generate button
-button = st.button("Generate")
-
-if button:
-
+if button := st.button("Generate"):
     if company == "Cohere":
         client = cohere.Client(api_key)
         response = client.generate(
