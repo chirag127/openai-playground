@@ -82,16 +82,33 @@ if button:
 
     elif company == "OpenAI":
 
-        completions = openai.Completion.create(
+        if stop_sequence != []:
+
+
+            completions = openai.Completion.create(
         engine=model,
         prompt=prompt,
         temperature=temperature,
         max_tokens=max_length,
+        top_p=top_p,
+        frequency_penalty=frequency_penalty,
+        presence_penalty=presence_penalty,
         stop=stop_sequence,
+    )
+        else:
+            completions = openai.Completion.create(
+        engine=model,
+        prompt=prompt,
+        temperature=temperature,
+        max_tokens=max_length,
         top_p=top_p,
         frequency_penalty=frequency_penalty,
         presence_penalty=presence_penalty,
     )
+
         result = completions.choices[0].text
 
     st.code(result)
+
+
+    
