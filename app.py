@@ -32,11 +32,13 @@ temperature = st.sidebar.slider("Temperature", min_value=0.00, max_value=1.00, s
 max_length = st.sidebar.slider("Max Length", min_value=1, max_value=8000, step=50, value=250)
 
 # Stop sequence input
-stop_sequence = st.sidebar.text_input("Enter the stop sequence", value="")
+stop_sequence = st.sidebar.text_input("Enter the stop sequence separated by commas")
 
-if stop_sequence == "":
-    stop_sequence = None
+stop_sequence = stop_sequence.split(",")
 
+
+if stop_sequence == [""]:
+    stop_sequence = []
 
 # Top P slider
 top_p = st.sidebar.slider("Top P", min_value=0.00, max_value=1.00, step=0.01, value=0.00)
